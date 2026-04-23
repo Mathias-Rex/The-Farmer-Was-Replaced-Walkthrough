@@ -1,11 +1,8 @@
-# Ha kinyitjuk a while ciklust, soha többé nem kell
-# a play gombot megnyomni, a program magától fog futni,
-# amíg le nem állítjuk.
-# Figyeljünk az indentálásra, mert a while ciklusban
-# minden kódnak ugyanabban a szinten kell lennie.
-# A gyerekek hajlamosak a tab helyett spacevel
-# indentálni, ami hibát okozhat, ezért érdemes
-# egyértelműen meghatározni, hogy melyiket használjuk.
+# Most nyissuk ki a Speed-et (a while alatt), hogy gyorsabban termeljük a szalmát.
+# Most láthatjuk, hogy a dónunk már gyorsabb, mint
+# ahogyan a fű kinő, úgyhogy nem termelünk semmit.
+# Ezért a do_a_flip() függvényt használjuk, hogy megszerzzük a szalmát.
 
 while True:
     harvest()
+    do_a_flip()
