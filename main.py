@@ -1,8 +1,10 @@
-# Most nyissuk ki a Speed-et (a while alatt), hogy gyorsabban termeljük a szalmát.
-# Most láthatjuk, hogy a dónunk már gyorsabb, mint
-# ahogyan a fű kinő, úgyhogy nem termelünk semmit.
-# Ezért a do_a_flip() függvényt használjuk, hogy megszerzzük a szalmát.
+
+# Aztán mutassuk meg a gyerekeknek, hogy a speeddel
+# kaptunk egy másik függvényt is, a can_harvest()
+# függvényt, ami megmondja nekünk, hogy elég érett-e
+# már a szalma ahhoz, hogy arathassunk.
+# A felső kódot töröljük, hogy az alsó futhasson.
 
 while True:
-    harvest()
-    do_a_flip()
+    if can_harvest():
+        harvest()
