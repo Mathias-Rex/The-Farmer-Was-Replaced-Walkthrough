@@ -1,4 +1,3 @@
-
 # Aztán mutassuk meg a gyerekeknek, hogy a speeddel
 # kaptunk egy másik függvényt is, a can_harvest()
 # függvényt, ami megmondja nekünk, hogy elég érett-e
