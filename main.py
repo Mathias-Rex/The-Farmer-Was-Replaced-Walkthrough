@@ -23,3 +23,15 @@ while True:
 #   indultunk, de a kódunk ezt feltételezi,
 #   mindig 3-at megy vízszintesen és 3-at
 #   függőlegesen!
+        
+# Miért nem ületet répát egy idő után?
+# - Ha megnézzük a képernyő jobb felső sarkát, akkor
+#   láthatjuk, hogy egy (sárga háromszög)
+#   figyelmeztetést kaptunk. Ezt azért kaptuk, ha
+#   a bal felső sarokban a répára kattintuk jobb egér
+#   gombbal, és ott pedig a "saját oldal" szövegre,
+#   láthatjuk, hogy 1 darab répa elültelése:
+#     * 1 darab szalma és
+#     * 1 darab fába kerül.
+#   azaz, ha valamelyik elfogy, akkor nem tudunk
+#   tovább ültetni répát.
