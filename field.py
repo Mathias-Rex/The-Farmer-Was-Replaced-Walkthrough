@@ -1,7 +1,3 @@
-# A "plant_" és a "_field" részeket távolítsuk
-# el a nevükből, és importáljuk be a szükséges
-# modulokat!
-
 import plant
 import utility
 
