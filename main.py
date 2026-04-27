@@ -1,45 +1,39 @@
-# Előrelátó gazdaként készüljünk fel arra is,
-# hogy szalmát is tudjunk termelni.
+# Jó sok kódunk van, nyissuk ki az importot és rakjunk rendet!
+# A jobb felső sarokban nyissuk egy új fájlt a + gombbal.
+# Kattintsunk az ablak fejlécére és nevezzük át plant-re.
+# Másoljunk (innen pedig töröljük ki) át mindent ide,
+# ami planttel kezdődik, kivéve:
+#   * plant_forest,
+#   * plant_carrot_field,
+#   * plant_grass_fielde fügévyeket!
+# Majd írjuk be, hogy:
+import plant
 
-def goto(x, y):
-    while x != get_pos_x() or y != get_pos_y():
-        if x > get_pos_x():
-            move(East)
-        elif x < get_pos_x():
-            move(West)
-        if y > get_pos_y():
-            move(North)
-        elif y < get_pos_y():
-            move(South)
+# és javítsjuk:
+# a plant_bush-t plant.bush-ra
+# a plant_tree-t plant.tree-ra
+# a plant_carrot-t plant.carrot-ra
+# a plant_grass-t plant.gbush-ra
 
-def harvest_if_possible():
-    if can_harvest():
-        harvest()
+# nyissunk még egy file-t, pont mint az előbb, azt nevezzük
+# utility-nek és másoljuk át:
+#   * goto,
+#   * harvest_if_possible,
+#   * prepare_ground
+# függvényeket és innen töröljük ki.
+# importáljuk be a utilityt is.
 
-def prepare_ground(req_ground):
-    harvest_if_possible()
-    if get_ground_type() != req_ground:
-        till()
+import utility
 
-def plant_carrot():
-    if num_items(Items.Wood) < 1:
-        plant_bush() # ha fánk nincs akkor bokrot
-    elif num_items(Items.Hay) < 1:
-        plant_grass() # ha szalmánk nincs akkor azt
-    else:
-        prepare_ground(Grounds.Soil)
-        plant(Entities.Carrot)
+# és mindenhol javítsuk a függvények nevét:
+# a goto immáron:
+#   * utility.goto
+# lesz
+# javítsuk meg a plant fájlunkat is!
 
-def plant_grass():
-    prepare_ground(Grounds.Grassland)
-
-def plant_bush():
-    prepare_ground(Grounds.Grassland)
-    plant(Entities.Bush)
-
-def plant_tree():
-    prepare_ground(Grounds.Grassland)
-    plant(Entities.Tree)
+# Ha mindennel végeztünk és működik a kód pihenjünk!
+# Ezeket a fájlokat a fejlécükön található "-" gombbal
+# összes is csukhatjük, de vigyázat az "x" kitörli a fájlt is!
 
 def plant_forest():
     for y in range(get_world_size()):
@@ -49,9 +43,9 @@ def plant_forest():
                 rx = get_world_size() - x - 1
             goto(rx, y)
             if (rx + y) % 2 == 0:
-                plant_bush()
+                plant.bush()
             else:
-                plant_tree()
+                plant.tree()
 
 def plant_grass_field():
     for y in range(get_world_size()):
@@ -60,7 +54,7 @@ def plant_grass_field():
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             goto(rx, y)
-            plant_grass()
+            plant.grass()
 
 def plant_carrot_field():
     for y in range(get_world_size()):
@@ -68,8 +62,8 @@ def plant_carrot_field():
             rx = x
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
-            goto(rx, y)
-            plant_carrot()
+            utility.goto(rx, y)
+            plant.carrot()
 
 while True:
     plant_carrot_field()
