@@ -1,4 +1,4 @@
-# Késítsünk egy okos talaj előkészítő függvényt.
+# Késítsünk egy okos arató függvényt.
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -10,6 +10,10 @@ def goto(x, y):
             move(North)
         elif y < get_pos_y():
             move(South)
+
+def harvest_if_possible():
+    if can_harvest():
+        harvest()
 
 def prepare_ground(req_ground):
     if get_ground_type() != req_ground:
@@ -36,8 +40,7 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             goto(rx, y)
-            if can_harvest():
-                harvest()
+            harvest_if_possible()
             if get_pos_y() == 0 or get_pos_y() == 2:
                 plant_carrot()
             if get_pos_y() == 1:
