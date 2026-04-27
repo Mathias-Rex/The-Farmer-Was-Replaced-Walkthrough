@@ -1,4 +1,5 @@
-# Késítsünk egy okos arató függvényt.
+# Legyen még okosabb a talaj előkészítés!
+# Semmi sem veszhet kárba...
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -16,6 +17,7 @@ def harvest_if_possible():
         harvest()
 
 def prepare_ground(req_ground):
+    harvest_if_possible()
     if get_ground_type() != req_ground:
         till()
 
@@ -40,7 +42,6 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             goto(rx, y)
-            harvest_if_possible()
             if get_pos_y() == 0 or get_pos_y() == 2:
                 plant_carrot()
             if get_pos_y() == 1:
