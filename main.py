@@ -22,15 +22,15 @@ for y in range(3):
         if can_harvest():
             harvest()
     move(North)
-    
+
 # Töröld a felső kódot, hogy ez futhasson.
-    
-clear()
-while True:
-for y in range(3):
-    for x in range(3):
-        plant(Entities.Bush)
-        move(East)
-        if can_harvest():
-            harvest()
-    move(North)
+
+# clear()
+# while True:
+#     for y in range(3):
+#         for x in range(3):
+#             plant(Entities.Bush)
+#             move(East)
+#             if can_harvest():
+#                 harvest()
+#         move(North)
