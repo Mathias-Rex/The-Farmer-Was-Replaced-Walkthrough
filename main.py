@@ -1,6 +1,6 @@
-# Most nyissuk ki a kalapokat.
-# És használjunk is kalapot, izlés
-# szerint ki mlyet szeretne.
+# Grass kinyitásával 2x annyi szalmát
+# kapunk a fű learatásáért. Nyissuk ki!
+# Ez jó drága volt. 300 szalmába került.
 
 while True:
     change_hat(Hats.Gray_Hat)
