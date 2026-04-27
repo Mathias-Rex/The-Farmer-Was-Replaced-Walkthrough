@@ -22,5 +22,5 @@ while True:
                 till()
                 plant(Entities.Carrot)
             if get_pos_y() == 1:
-                till()
+
                 plant(Entities.Bush)
