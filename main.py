@@ -38,7 +38,7 @@ def plant_grass():
 def plant_bush():
     prepare_ground(Grounds.Grassland)
     plant(Entities.Bush)
-    
+
 def plant_tree():
     prepare_ground(Grounds.Grassland)
     plant(Entities.Tree)
@@ -50,10 +50,16 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             goto(rx, y)
-            if get_pos_y() == 0 or get_pos_y() == 2:
-                plant_carrot()
-            if get_pos_y() == 1:
+            # A (rx + y) % 2 kifejezés meghatározza, hogy
+            # az x és y értékek milyen kombinációja van.
+            # Ha a kifejezés értéke 0, akkor az x és y
+            # összege páros, és egy bokrot ültetünk.
+            # Ha a kifejezés értéke 1, akkor az x és y
+            # összege páratlan, és egy fát ültetünk.
+            if (rx + y) % 2 == 0:
                 plant_bush()
+            else:
+                plant_tree()
 
 # Ezt őrittük meg, mert készőbb még jó lesz!
 # while True:
