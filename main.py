@@ -1,4 +1,5 @@
-# Elég bonyolult répát ültetni, szervezük ki egy függvénybe.
+# Csináljunk egy okos fű ültető függvényt és
+# egy bokor ültető függvényt is.
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -17,8 +18,17 @@ def plant_carrot():
             till()
         plant(Entities.Carrot)
     else:
-        plant(Entities.Bush)
+        plant_bush() # itt is cseréljük ki, így nem fogja talajra ültetni a bokrot
 
+def plant_grass():
+    if get_ground_type() != Grounds.Grassland:
+        till() # ha talaj akkor legyen fű
+
+def plant_bush():
+    # ne ültessük a bokrot talajra
+    if get_ground_type() != Grounds.Grassland:
+        till()
+    plant(Entities.Bush)
 
 while True:
     for y in range(get_world_size()):
@@ -32,4 +42,4 @@ while True:
             if get_pos_y() == 0 or get_pos_y() == 2:
                 plant_carrot()
             if get_pos_y() == 1:
-                plant(Entities.Bush)
+                plant_bush()
