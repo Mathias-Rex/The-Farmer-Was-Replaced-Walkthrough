@@ -7,16 +7,16 @@
 def goto(x, y):
     # Addig mozgunk, amíg el nem érjük a kívánt helyet
     while x != get_pos_x() or y != get_pos_y():
-        # Vízszintes mozgás: bal vagy jobb
-        if x < get_pos_x():
-            move(West)   # célpont balra van tőlünk
-        elif x > get_pos_x():
+        if x > get_pos_x():
             move(East)   # célpont jobbra van tőlünk
+        # Vízszintes mozgás: bal vagy jobb
+        elif x < get_pos_x():
+            move(West)   # célpont balra van tőlünk
         # Függőleges mozgás: fel vagy le
         if y > get_pos_y():
-            move(South)  # célpont lejjebb van
-        elif y < get_pos_y():
             move(North)  # célpont feljebb van
+        elif y < get_pos_y():
+            move(South)  # célpont lejjebb van
 
 # Teszteljük
 goto(0, 0)
