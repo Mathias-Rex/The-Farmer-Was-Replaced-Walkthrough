@@ -1,5 +1,4 @@
-# Nyissuk ki az Speedet megint
-# Ne próbáljunk meg répát ültetni, ha nem tudunk.
+# Elég bonyolult répát ültetni, szervezük ki egy függvénybe.
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -12,6 +11,15 @@ def goto(x, y):
         elif y < get_pos_y():
             move(South)
 
+def plant_carrot():
+    if num_items(Items.Wood) > 1 or num_items(Items.Hay) > 1:
+        if get_ground_type() == Grounds.Grassland:
+            till()
+        plant(Entities.Carrot)
+    else:
+        plant(Entities.Bush)
+            
+
 while True:
     for y in range(get_world_size()):
         for x in range(get_world_size()):
@@ -22,11 +30,6 @@ while True:
             if can_harvest():
                 harvest()
             if get_pos_y() == 0 or get_pos_y() == 2:
-                if num_items(Items.Wood) > 1 or num_items(Items.Hay) > 1:
-                    if get_ground_type() == Grounds.Grassland:
-                        till()
-                    plant(Entities.Carrot)
-                else:
-                    plant(Entities.Bush)
+                plant_carrot()
             if get_pos_y() == 1:
                 plant(Entities.Bush)
