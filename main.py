@@ -1,5 +1,5 @@
-# Csináljunk egy függvényt abból, hogy egy erdőt ültetünk és
-# egy másikat, hogy répát
+# Előrelátó gazdaként készüljünk fel arra is,
+# hogy szalmát is tudjunk termelni.
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -53,6 +53,15 @@ def plant_forest():
             else:
                 plant_tree()
 
+def plant_grass_field():
+    for y in range(get_world_size()):
+        for x in range(get_world_size()):
+            rx = x
+            if y % 2 != 0:
+                rx = get_world_size() - x - 1
+            goto(rx, y)
+            plant_grass()
+
 def plant_carrot_field():
     for y in range(get_world_size()):
         for x in range(get_world_size()):
@@ -65,3 +74,4 @@ def plant_carrot_field():
 while True:
     plant_carrot_field()
     plant_forest()
+    plant_grass_field()
