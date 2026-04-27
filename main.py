@@ -1,4 +1,4 @@
-# Késítsünk egy okos arató függvényt.
+# Még okosabb répa ültetés
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -20,12 +20,14 @@ def prepare_ground(req_ground):
         till()
 
 def plant_carrot():
-    if num_items(Items.Wood) > 1 or num_items(Items.Hay) > 1:
+    if num_items(Items.Wood) < 1:
+        plant_bush() # ha fánk nincs akkor bokrot
+    elif num_items(Items.Hay) < 1:
+        plant_grass() # ha szalmánk nincs akkor azt
+    else:
         prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
-    else:
-        plant_bush() # itt is cseréljük ki, így nem fogja talajra ültetni a bokrot
-
+        
 def plant_grass():
     prepare_ground(Grounds.Grassland)
 
