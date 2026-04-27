@@ -1,3 +1,6 @@
+# A prepare_ground() függvény végére tegyünk
+# egy use_item(Items.Water) # függvényt.
+
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
         if x > get_pos_x():
@@ -17,3 +20,4 @@ def prepare_ground(req_ground):
     harvest_if_possible()
     if get_ground_type() != req_ground:
         till()
+    use_item(Items.Water)
