@@ -1,11 +1,5 @@
-# Nyissuk ki a Water-t megint, hogy többet tudjunk
-# locsolni. Ahhoz hogy még többet tudjunk locsolni
-# harmadszor is ki kellene nyitnunk, de ahhoz
-# 800 fa kell!
-# Okosítsuk a rendszert! Készítsünk limiteket és
-# döntsön a drón, mit termelünk!
-# És hogy gyorsabban meglegyen előtte nyissuk ki a fát is újra
-# Ha megvan a 800 fa nyissuk ki a vizet!
+# A túllocsolás ellen rakjunk be még egy kis védelemt
+# a utilityben
 
 import field
 
