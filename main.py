@@ -41,7 +41,7 @@ def plant_forest():
             rx = x
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
-            goto(rx, y)
+            utility.goto(rx, y)
             if (rx + y) % 2 == 0:
                 plant.bush()
             else:
@@ -53,7 +53,7 @@ def plant_grass_field():
             rx = x
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
-            goto(rx, y)
+            utility.goto(rx, y)
             plant.grass()
 
 def plant_carrot_field():
