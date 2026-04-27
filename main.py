@@ -1,7 +1,13 @@
+# Nyissuk ki a while. Hasonlítsuk a a Scratch mindig blokkjához.
+
+while True:
+    harvest()
+
 # Most nyissuk ki a Speed-et (a while alatt), hogy gyorsabban termeljük a
 # szalmát. Most láthatjuk, hogy a dónunk már gyorsabb, mint
 # ahogyan a fű kinő, úgyhogy nem termelünk semmit.
 # Ezért a do_a_flip() függvényt használjuk, hogy megszerzzük a szalmát.
+# A fenti kódot töröljük vagy kommenteljük ki.
 
 while True:
     harvest()
