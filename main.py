@@ -18,7 +18,7 @@ def plant_carrot():
         plant(Entities.Carrot)
     else:
         plant(Entities.Bush)
-            
+
 
 while True:
     for y in range(get_world_size()):
