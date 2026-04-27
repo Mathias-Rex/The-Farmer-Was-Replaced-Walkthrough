@@ -1,5 +1,3 @@
-# Akkor használunk vizet, ha van!
-
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
         if x > get_pos_x():
