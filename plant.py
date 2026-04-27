@@ -1,12 +1,4 @@
-# itt pedig távolítsuk el a "plant_" részt
-# minden függvény elől
-
 import utility
-
-# itt is be kell importálnunk a utility-t, 
-# hiszen használjuk a függvényit.
-# prepare_ground függvényt utility.prepare_ground-ra
-# kell mnódosítani mindnhol
 
 def carrot():
     if num_items(Items.Wood) < 1:
