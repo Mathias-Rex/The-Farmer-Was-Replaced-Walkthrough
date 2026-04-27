@@ -1,25 +1,26 @@
-# Termeljünk répát!
-# a répa ültelés előtt kell kapálni,
-# és hogy ne vesszen kárba semmi, amit
-# elültettünk kitörlüm a clear()-t
+# Termeljünk mindent!
+# mivel (majdnem) tudjuk, hogy hányadik sorban
+# vagy oszlopban vagyunk, ezért
+# megmondhatjuk, hogy mit kell csinálnunk!
 
 while True:
     for y in range(3):
         for x in range(3):
             if can_harvest():
                 harvest()
-            till()
-            plant(Entities.Carrot)
+            if y == 0:
+                till()
+                plant(Entities.Carrot)
+            if y == 1:
+                plant(Entities.Bush)
             move(East)
         move(North)
 
-# Miért van az, hogy hol répt, hol szalmát
-# aratunk?
-# - A till a füvet (Grassland) talajjá (Soil),
-#   a talajd pedig fűvé alakítja.
-
-# Miért mozog a drónunk össze-vissza?
-# - Mert nem a x=0, y=0 koordinátáról
-#   indultunk, de a kódunk ezt feltételezi,
-#   mindig 3-at megy vízszintesen és 3-at
-#   függőlegesen!
+# Miért van az, hogy hol az első sorba,
+# hol a másodikba kerül a répa?
+# - Ez attól függ, hogy melyik sorban áll
+#   a frónunk a program indításakor.
+#   valójában a drón nem tudja, hol van,
+#   csak azt modntuk neki, hogy 3x készíts egy sort
+#   (azaz 3x arass, ültess, menj jobbra jobbra),
+#   aztán menjd felfelé
