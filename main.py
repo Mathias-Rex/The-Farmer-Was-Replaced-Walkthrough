@@ -1,36 +1,25 @@
-# Gyűjtsünk 20 fát, majd az Expandot újra.
-# 3x3-as mező a jutalmunk + a for loop.
-# A for loopot tudjuk hasonlítani a Scratch
-# ismételd blokkjához, cset iss azt is megkapjuk,
-# hogy éppen hányadik ismétlésnél tartunk!
-# Fontos megértetni a gyerekekkel, hogy 0-ról
-# indul a számolás!
-# Kaptunk egy clear függvényt is, amit ha
-# meghívunk a programunk elején "tiszta lappal"
-# indulunk!
-# Először while loop nélkül mutassuk mag a
-# gyerekeknek, majd az egészet tegyük while-ba.
-# Itt ki is térhetünk rá, hogy a teli nyíl futtatja
-# a programot, az üres nyil pedig csak egy sort futtat,
-# aztán megáll.
+# Termeljünk répát!
+# a répa ültelés előtt kell kapálni,
+# és hogy ne vesszen kárba semmi, amit
+# elültettünk kitörlüm a clear()-t
 
-clear()
-for y in range(3):
-    for x in range(3):
-        plant(Entities.Bush)
-        move(East)
-        if can_harvest():
-            harvest()
-    move(North)
+while True:
+    for y in range(3):
+        for x in range(3):
+            if can_harvest():
+                harvest()
+            till()
+            plant(Entities.Carrot)
+            move(East)
+        move(North)
 
-# Töröld a felső kódot, hogy ez futhasson.
+# Miért van az, hogy hol répt, hol szalmát
+# aratunk?
+# - A till a füvet (Grassland) talajjá (Soil),
+#   a talajd pedig fűvé alakítja.
 
-# clear()
-# while True:
-#     for y in range(3):
-#         for x in range(3):
-#             plant(Entities.Bush)
-#             move(East)
-#             if can_harvest():
-#                 harvest()
-#         move(North)
+# Miért mozog a drónunk össze-vissza?
+# - Mert nem a x=0, y=0 koordinátáról
+#   indultunk, de a kódunk ezt feltételezi,
+#   mindig 3-at megy vízszintesen és 3-at
+#   függőlegesen!
