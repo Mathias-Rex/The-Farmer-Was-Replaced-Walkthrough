@@ -25,5 +25,5 @@ def bush():
     plant(Entities.Bush)
 
 def tree():
-    prepare_ground(Grounds.Grassland)
+    utility.prepare_ground(Grounds.Grassland)
     plant(Entities.Tree)
