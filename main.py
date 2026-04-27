@@ -1,8 +1,9 @@
-# Grass kinyitásával 2x annyi szalmát
-# kapunk a fű learatásáért. Nyissuk ki!
-# Ez jó drága volt. 300 szalmába került.
+# Nyissuk ki a Expandot, és a kapunk egy 1x3-as mezőt.
+# A kalapcserét pedig vegyük ki a while-ból, nem kell
+# mindig kalapot cserélni
 
+change_hat(Hats.Gray_Hat)
 while True:
-    change_hat(Hats.Gray_Hat)
     if can_harvest():
         harvest()
+        move(North)
