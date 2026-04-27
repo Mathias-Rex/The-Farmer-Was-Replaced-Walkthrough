@@ -1,11 +1,5 @@
-# Nyissuk ki az Expandot megint!
-# 4x4-es terület a jutalmunk!
-# De csak 3x3-as területet művelünk meg...
-# Hogyan lehet megoldani, hogy ne
-# kelljen ezzel már többet foglalkozni?
-# 4-et írni a 3 helyére a for ciklusba.
-# vagy inkább használni a get_world_size()-t
-# Ha túl sok a szalma ültessünk mást!
+# Nyissuk ki az Speedet megint
+# Ne próbáljunk meg répát ültetni, ha nem tudunk.
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -28,8 +22,11 @@ while True:
             if can_harvest():
                 harvest()
             if get_pos_y() == 0 or get_pos_y() == 2:
-                if get_ground_type() == Grounds.Grassland:
-                    till()
-                plant(Entities.Carrot)
+                if num_items(Items.Wood) > 1 or num_items(Items.Hay) > 1:
+                    if get_ground_type() == Grounds.Grassland:
+                        till()
+                    plant(Entities.Carrot)
+                else:
+                    plant(Entities.Bush)
             if get_pos_y() == 1:
                 plant(Entities.Bush)
