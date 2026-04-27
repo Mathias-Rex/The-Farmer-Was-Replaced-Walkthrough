@@ -1,4 +1,7 @@
-# Még okosabb répa ültetés
+# Most már jó sok répánk van, de nincs fánk.
+# Nyissuk ki a fát, és ültessünk azt.
+# Készítsünk okos fa ültető függvényt.
+# De a fát pepitában kell ültetnünk!!!
 
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
@@ -16,6 +19,7 @@ def harvest_if_possible():
         harvest()
 
 def prepare_ground(req_ground):
+    harvest_if_possible()
     if get_ground_type() != req_ground:
         till()
 
@@ -27,13 +31,17 @@ def plant_carrot():
     else:
         prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
-        
+
 def plant_grass():
     prepare_ground(Grounds.Grassland)
 
 def plant_bush():
     prepare_ground(Grounds.Grassland)
     plant(Entities.Bush)
+    
+def plant_tree():
+    prepare_ground(Grounds.Grassland)
+    plant(Entities.Tree)
 
 while True:
     for y in range(get_world_size()):
@@ -42,8 +50,21 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             goto(rx, y)
-            harvest_if_possible()
             if get_pos_y() == 0 or get_pos_y() == 2:
                 plant_carrot()
             if get_pos_y() == 1:
                 plant_bush()
+
+# Ezt őrittük meg, mert készőbb még jó lesz!
+# while True:
+#     for y in range(get_world_size()):
+#         for x in range(get_world_size()):
+#             rx = x
+#             if y % 2 != 0:
+#                 rx = get_world_size() - x - 1
+#             goto(rx, y)
+#             harvest_if_possible()
+#             if get_pos_y() == 0 or get_pos_y() == 2:
+#                 plant_carrot()
+#             if get_pos_y() == 1:
+#                 plant_bush()
