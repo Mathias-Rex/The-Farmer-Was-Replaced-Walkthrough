@@ -1,9 +1,8 @@
-# Aztán mutassuk meg a gyerekeknek, hogy a speeddel
-# kaptunk egy másik függvényt is, a can_harvest()
-# függvényt, ami megmondja nekünk, hogy elég érett-e
-# már a szalma ahhoz, hogy arathassunk.
-# A felső kódot töröljük, hogy az alsó futhasson.
+# Most nyissuk ki a kalapokat.
+# És használjunk is kalapot, izlés
+# szerint ki mlyet szeretne.
 
 while True:
+    change_hat(Hats.Gray_Hat)
     if can_harvest():
         harvest()
