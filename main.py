@@ -10,7 +10,7 @@ req_hay = 800
 
 while True:
     custom_map = [
-      [Entities.Bush, Entities.Tree, Entities.Tree, Entities.Carrot],
+      [Entities.Bush, Entities.Tree, Entities.Bush, Entities.Carrot],
       [Entities.Tree, Entities.Carrot, Entities.Carrot, Entities.Tree],
       [Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Carrot],
       [Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Tree]
