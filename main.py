@@ -9,9 +9,9 @@ while True:
         field.grass()
     elif num_items(Items.Wood) < config.req_wood:
         field.forest()
-    elif num_items(Entities.Carrot) < config.req_carrot:
+    elif num_items(Items.Carrot) < config.req_carrot:
         field.carrot()
-    elif num_items(Entities.Pumpkin) < config.req_pumpkin:
+    elif num_items(Items.Pumpkin) < config.req_pumpkin:
         field.pumpkin()
     else:
         field.pumpkin()
