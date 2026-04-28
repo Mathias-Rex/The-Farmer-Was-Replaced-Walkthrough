@@ -1,6 +1,3 @@
-# Rakjunk be még egy kis védelmet a túllocsolás ellen!
-# Sőt legyen egy okosz locsoló függvényünk ebből is
-
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
         if x > get_pos_x():
