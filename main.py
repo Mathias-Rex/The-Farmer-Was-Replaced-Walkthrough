@@ -1,5 +1,4 @@
-# Nyissuk ki a 3. speedet is.
-# És készítsünk egy jobb tök ültetést a fieldben
+# Javítsuk a tök ültetést a field-ben
 
 import config
 import field
