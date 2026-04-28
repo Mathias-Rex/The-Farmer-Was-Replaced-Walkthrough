@@ -46,7 +46,10 @@ def pumpkin():
     pumpkin_map = []
     for y in range(get_world_size()):
         for x in range(get_world_size()):
-            pumpkin_map.insert(0, (x, y))
+            rx = x
+            if y % 2 != 0:
+                rx = get_world_size() - x - 1
+            pumpkin_map.insert(0, (rx, y))
 
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
