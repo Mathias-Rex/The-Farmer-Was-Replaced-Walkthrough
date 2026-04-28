@@ -17,13 +17,16 @@ def use_water():
     if num_items(Items.Water) > 1 and get_water() < 0.5:
         use_item(Items.Water)
 
-# pont olyan mint a víz használat, csak itt nincs a 
-# talajnak műtrágya tartalma.
+# Csak akkor műtrágyázunk, ha azt beállítottuk
+# De sajnos ez így nem működik, és az import main
+# problémát okozna: importáláskor újra lefutna a
+# main teljes kódja — beleértve a while True ciklust is.
 def use_fertilizer():
+    if req_fertilizer == False:
+        return False
     if num_items(Items.Fertilizer) > 1:
         use_item(Items.Fertilizer)
 
-# Használjk a telej előkészítsénél a műtrágyát.
 def prepare_ground(req_ground):
     harvest_if_possible()
     if get_ground_type() != req_ground:
