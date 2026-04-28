@@ -52,14 +52,13 @@ def pumpkin():
             plant.pumpkin()
             pumpkin_map.insert(0, (rx, y))
 
-    # Ez sajnos csak egyszer fut le, de van megoldás!
-    # Addig fusson, amíg van ellenőrizendő koordinátánk.
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
             coord = pumpkin_map.pop()
             x = coord[0]
             y = coord[1]
             utility.goto(x, y)
-            if get_entity_type() == Entities.Dead_Pumpkin:
+            # ne csak akkor ültessen, ha halott tök van, hanem ha nincs tök
+            if get_entity_type() != Entities.Pumpkin:
                 plant.pumpkin()
                 pumpkin_map.insert(0, (x, y))
