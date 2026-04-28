@@ -1,3 +1,6 @@
+# importáljuk itt is configot
+import config
+
 def goto(x, y):
     while x != get_pos_x() or y != get_pos_y():
         if x > get_pos_x():
@@ -17,12 +20,9 @@ def use_water():
     if num_items(Items.Water) > 1 and get_water() < 0.5:
         use_item(Items.Water)
 
-# Csak akkor műtrágyázunk, ha azt beállítottuk
-# De sajnos ez így nem működik, és az import main
-# problémát okozna: importáláskor újra lefutna a
-# main teljes kódja — beleértve a while True ciklust is.
+# És használjuk is
 def use_fertilizer():
-    if req_fertilizer == False:
+    if config.req_fertilizer == False:
         return False
     if num_items(Items.Fertilizer) > 1:
         use_item(Items.Fertilizer)

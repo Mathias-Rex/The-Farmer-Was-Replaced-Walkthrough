@@ -2,13 +2,15 @@
 # és a Utilityben készítsük el a use_fetilizer
 # függvényt, a use_waterhez hasonlóan!
 
+# Nyissunk egy új fájlt config néven és minden
+# req_ kezdetű változót tegyünk át oda!
+# Ezentúl ez fogja szabályozni az appunk teljes
+# beállítását!
+# Javítsuk meg az itt használ req_ változókat
+# a commentekben is
+
+import config
 import field
-
-req_wood = 850
-req_carrot = 500
-req_hay = 800
-
-req_fertilizer = True
 
 while True:
     custom_map = [
@@ -19,9 +21,9 @@ while True:
     ]
     field.custom(custom_map)
 
-#    if num_items(Items.Hay) < req_hay:
+#    if num_items(Items.Hay) < config.req_hay:
 #        field.grass()
-#    elif num_items(Items.Wood) < req_wood:
+#    elif num_items(Items.Wood) < config.req_wood:
 #        field.forest()
 #    else:
 #        field.carrot()
