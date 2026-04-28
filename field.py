@@ -54,6 +54,7 @@ def pumpkin():
             plant.pumpkin()
             pumpkin_map.insert(0, (rx, y))
 
+    # ebben a második körben pedig ellenőrizzük le mi van elültetve
     for _ in range(len(pumpkin_map)):
         coord = pumpkin_map.pop()
         utility.goto(coord[0], coord[1])
