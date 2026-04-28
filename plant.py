@@ -9,7 +9,7 @@ def carrot():
         utility.prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
 
-def plant_grass():
+def grass():
     utility.prepare_ground(Grounds.Grassland)
 
 def bush():
