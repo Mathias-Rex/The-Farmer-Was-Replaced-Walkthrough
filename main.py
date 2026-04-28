@@ -1,7 +1,6 @@
-# Tegyük a helyére az mező ültetést is!
-# Másoljuk át a kódot a field fájlba,
-# hívjuk meg a field.custom függvényt,
-# és távolítsuk el a felesleges importokat.
+# Nyissuk ki a műtrűgyűt is / Fertilizer
+# és a Utilityben készítsük el a use_fetilizer
+# függvényt, a use_waterhez hasonlóan!
 
 import field
 

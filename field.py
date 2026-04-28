@@ -1,6 +1,3 @@
-# hozzuk létre a def custom függvényt,
-# és másoljuk bele a függvény törzset.
-
 import plant
 import utility
 

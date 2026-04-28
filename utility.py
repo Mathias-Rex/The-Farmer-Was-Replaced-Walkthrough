@@ -17,8 +17,16 @@ def use_water():
     if num_items(Items.Water) > 1 and get_water() < 0.5:
         use_item(Items.Water)
 
+# pont olyan mint a víz használat, csak itt nincs a 
+# talajnak műtrágya tartalma.
+def use_fertilizer():
+    if num_items(Items.Fertilizer) > 1:
+        use_item(Items.Fertilizer)
+
+# Használjk a telej előkészítsénél a műtrágyát.
 def prepare_ground(req_ground):
     harvest_if_possible()
     if get_ground_type() != req_ground:
         till()
     use_water()
+    use_fertilizer()
