@@ -1,18 +1,13 @@
-# Nyissuk ki a:
-#  * a 6x6-os farmot az Expanddal
-#  * Grass-t 2x
-#  * répát és
-#  * speedet
-#  * egy kicsit termeljünk
-# hogy ki tudjuk nyitni a Sunflowert
-# készítsük el a sunflower ültető függvényeket a
-# plant és a field fájlban, valamint a
-# smart függvényt is egészítsük ki az új sunflower()
-# függvénnyel.
-# Az okos teremlést is javítsuk ki a mainben 
+# Nyissuk ki: 
+#  * a 8x8 mezőt az Expanddal
+#  * a dictionary-t a List alatt
+# Kezdjük optimalizálni a napraforgő mezőnket.
 
 import config
 import field
+
+while True:
+    field.sunflower()
 
 while True:
     if num_items(Items.Hay) < config.req_hay:
