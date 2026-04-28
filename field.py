@@ -57,5 +57,8 @@ def pumpkin():
     # ebben a második körben pedig ellenőrizzük le mi van elültetve
     for _ in range(len(pumpkin_map)):
         coord = pumpkin_map.pop()
-        utility.goto(coord[0], coord[1])
-        print(get_entity_type())
+        x = coord[0]
+        y = coord[1]
+        utility.goto(x, y)
+        if get_entity_type() == Entities.Dead_Pumpkin:
+            plant.pumpkin()
