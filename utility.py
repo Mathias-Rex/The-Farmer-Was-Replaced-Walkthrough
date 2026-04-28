@@ -15,7 +15,6 @@ def harvest_if_possible():
     if can_harvest():
         harvest()
 
-# Csináljuk meg az öntözést is kikapcsolhatóra
 def use_water():
     if config.req_water and num_items(Items.Water) > 1 and get_water() < 0.5:
         use_item(Items.Water)

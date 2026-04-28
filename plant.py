@@ -1,5 +1,6 @@
 import utility
 
+
 def carrot():
     if num_items(Items.Wood) < 1:
         bush() # ha fánk nincs akkor bokrot
@@ -8,6 +9,16 @@ def carrot():
     else:
         utility.prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
+        utility.use_fertilizer()
+
+# a carrotból másolhatjuk a tököt, mert ugyanúgy kell ültetni, 
+# csak a feltételek mások 
+def pumpkin():
+    if num_items(Items.Carrot) < 1:
+        carrot() # ha répánk ültessünk azt
+    else:
+        utility.prepare_ground(Grounds.Soil)
+        plant(Entities.Pumpkin)
         utility.use_fertilizer()
 
 def grass():
@@ -21,6 +32,7 @@ def tree():
     utility.prepare_ground(Grounds.Grassland)
     plant(Entities.Tree)
 
+# Gondoskodjunk a smart függvényről is
 def smart(entity):
     if entity == Entities.Bush:
         bush()
@@ -30,3 +42,5 @@ def smart(entity):
         grass()
     if entity == Entities.Carrot:
         carrot()
+    if entity == Entities.Pumpkin:
+        Pumpkin()

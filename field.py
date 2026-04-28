@@ -39,3 +39,13 @@ def carrot():
                 rx = get_world_size() - x - 1
             utility.goto(rx, y)
             plant.carrot()
+
+# itt is a carrot-ból készísük el
+def pumpkin():
+    for y in range(get_world_size()):
+        for x in range(get_world_size()):
+            rx = x
+            if y % 2 != 0:
+                rx = get_world_size() - x - 1
+            utility.goto(rx, y)
+            plant.pumpkin()
