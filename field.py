@@ -40,19 +40,13 @@ def carrot():
             utility.goto(rx, y)
             plant.carrot()
 
-pumpkin_map = []
+# Az első kör teljesen felesleges, hiszen elég lenne csak a
+# maző koordinátáival feltölteni a tömbünket először!
 def pumpkin():
-    global pumpkin_map
+    pumpkin_map = []
     for y in range(get_world_size()):
         for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            # a tökre se ültessünk tököt már első körben se
-            if get_entity_type() != Entities.Pumpkin:
-                plant.pumpkin()
-                pumpkin_map.insert(0, (rx, y))
+            pumpkin_map.insert(0, (x, y))
 
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
