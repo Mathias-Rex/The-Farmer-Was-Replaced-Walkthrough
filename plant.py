@@ -1,3 +1,8 @@
+# itt pedig töröljük a "plant_" részt a nevéből
+# és a srmart függvényben töröljük a "plant." 
+# részt a függvények elől, hiszen itt már
+# elérhetőek ezek a függvéynek.
+
 import utility
 
 def carrot():
@@ -19,3 +24,13 @@ def bush():
 def tree():
     utility.prepare_ground(Grounds.Grassland)
     plant(Entities.Tree)
+
+def smart(entity):
+    if entity == Entities.Bush:
+        bush()
+    if entity == Entities.Tree:
+        tree()
+    if entity == Entities.Grass:
+        grass()
+    if entity == Entities.Carrot:
+        carrot()

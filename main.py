@@ -1,26 +1,16 @@
-# De ez az ültetés nem elég okos:
-#  * nem készíti elő a talajt és
-#  * nem locsolja meg a növényt.
-# Készítsünk egy okos ültetés függvényt!
+# Tegyük megint a helyére az okos ültetést!
+# Másoljuk át a plant fájlba/modulba és
+# innét töröljük a plant_smart függvényt!
+# Ha a plant-ban átneveztük cseréljök
+# a "_"-t "."-ra a for ciklusban!
 
 import field
 import utility
 import plant
 
-
 req_wood = 850
 req_carrot = 500
 req_hay = 800
-
-def plant_smart(entity):
-    if entity == Entities.Bush:
-        plant.bush()
-    if entity == Entities.Tree:
-        plant.tree()
-    if entity == Entities.Grass:
-        plant.grass()
-    if entity == Entities.Carrot:
-        plant.carrot()
 
 while True:
     custom_map = [
@@ -35,8 +25,7 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             utility.goto(rx, y)
-            utility.harvest_if_possible()
-            plant_smart(custom_map[y][rx])
+            plant.smart(custom_map[y][rx])
 
 #    if num_items(Items.Hay) < req_hay:
 #        field.grass()
