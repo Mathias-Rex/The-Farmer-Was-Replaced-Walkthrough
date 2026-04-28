@@ -16,7 +16,6 @@ while True:
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             utility.goto(rx, y)
-            utility.harvest_if_possible()
             plant(custom_map[(rx + y * 4) % len(custom_map)])
 
 #    if num_items(Items.Hay) < req_hay:
