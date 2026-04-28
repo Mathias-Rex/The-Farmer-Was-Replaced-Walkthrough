@@ -1,4 +1,3 @@
-# importáljuk itt is configot
 import config
 
 def goto(x, y):
@@ -16,11 +15,11 @@ def harvest_if_possible():
     if can_harvest():
         harvest()
 
+# Csináljuk meg az öntözést is kikapcsolhatóra
 def use_water():
-    if num_items(Items.Water) > 1 and get_water() < 0.5:
+    if config.req_water and num_items(Items.Water) > 1 and get_water() < 0.5:
         use_item(Items.Water)
 
-# És használjuk is
 def use_fertilizer():
     if config.req_fertilizer == False:
         return False
