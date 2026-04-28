@@ -11,14 +11,22 @@ def carrot():
         plant(Entities.Carrot)
         utility.use_fertilizer()
 
-# a carrotból másolhatjuk a tököt, mert ugyanúgy kell ültetni, 
-# csak a feltételek mások 
 def pumpkin():
     if num_items(Items.Carrot) < 1:
         carrot() # ha répánk ültessünk azt
     else:
         utility.prepare_ground(Grounds.Soil)
         plant(Entities.Pumpkin)
+        utility.use_fertilizer()
+
+# Másoljuk le a pumpkin függvényt és módosítsuk,
+# hogy napraforgó ültetésére alkalmas legyen
+def sunflower():
+    if num_items(Items.Carrot) < 1:
+        carrot() # ha répánk ültessünk azt
+    else:
+        utility.prepare_ground(Grounds.Soil)
+        plant(Entities.Sunflower)
         utility.use_fertilizer()
 
 def grass():

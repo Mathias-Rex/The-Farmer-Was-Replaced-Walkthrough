@@ -40,8 +40,6 @@ def carrot():
             utility.goto(rx, y)
             plant.carrot()
 
-# Az első kör teljesen felesleges, hiszen elég lenne csak a
-# maző koordinátáival feltölteni a tömbünket először!
 def pumpkin():
     pumpkin_map = []
     for y in range(get_world_size()):
@@ -58,3 +56,14 @@ def pumpkin():
                 plant.pumpkin()
                 pumpkin_map.insert(0, (x, y))
     harvest()
+
+# másoljuk le a carrot függvényt és módosítsuk,
+# hogy napraforgókat ültessen
+def sunflower():
+    for y in range(get_world_size()):
+        for x in range(get_world_size()):
+            rx = x
+            if y % 2 != 0:
+                rx = get_world_size() - x - 1
+            utility.goto(rx, y)
+            plant.sunflower()
