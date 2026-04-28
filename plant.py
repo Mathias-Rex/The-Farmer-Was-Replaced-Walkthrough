@@ -1,8 +1,3 @@
-# itt pedig töröljük a "plant_" részt a nevéből
-# és a srmart függvényben töröljük a "plant." 
-# részt a függvények elől, hiszen itt már
-# elérhetőek ezek a függvéynek.
-
 import utility
 
 def carrot():

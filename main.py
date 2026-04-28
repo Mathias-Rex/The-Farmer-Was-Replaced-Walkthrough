@@ -1,12 +1,9 @@
-# Tegyük megint a helyére az okos ültetést!
-# Másoljuk át a plant fájlba/modulba és
-# innét töröljük a plant_smart függvényt!
-# Ha a plant-ban átneveztük cseréljök
-# a "_"-t "."-ra a for ciklusban!
+# Tegyük a helyére az mező ültetést is!
+# Másoljuk át a kódot a field fájlba,
+# hívjuk meg a field.custom függvényt,
+# és távolítsuk el a felesleges importokat.
 
 import field
-import utility
-import plant
 
 req_wood = 850
 req_carrot = 500
@@ -19,13 +16,7 @@ while True:
       [Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Carrot],
       [Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Tree]
     ]
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            plant.smart(custom_map[y][rx])
+    field.custom(custom_map)
 
 #    if num_items(Items.Hay) < req_hay:
 #        field.grass()
