@@ -49,7 +49,9 @@ def pumpkin():
             if y % 2 != 0:
                 rx = get_world_size() - x - 1
             utility.goto(rx, y)
-            plant.pumpkin()
+            # a tökre se ültessünk tököt már első körben se
+            if get_entity_type() != Entities.Pumpkin:
+                plant.pumpkin()
             pumpkin_map.insert(0, (rx, y))
 
     while len(pumpkin_map) > 0:
@@ -58,7 +60,6 @@ def pumpkin():
             x = coord[0]
             y = coord[1]
             utility.goto(x, y)
-            # ne csak akkor ültessen, ha halott tök van, hanem ha nincs tök
             if get_entity_type() != Entities.Pumpkin:
                 plant.pumpkin()
                 pumpkin_map.insert(0, (x, y))
