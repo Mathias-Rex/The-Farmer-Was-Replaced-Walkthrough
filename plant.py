@@ -3,7 +3,7 @@
 
 import utility
 
-# itt is be kell importálnunk a utility-t, 
+# itt is be kell importálnunk a utility-t,
 # hiszen használjuk a függvényit.
 # prepare_ground függvényt utility.prepare_ground-ra
 # kell mnódosítani mindnhol
@@ -17,7 +17,7 @@ def carrot():
         utility.prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
 
-def plant_grass():
+def grass():
     utility.prepare_ground(Grounds.Grassland)
 
 def bush():
