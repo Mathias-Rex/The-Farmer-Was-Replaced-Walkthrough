@@ -5,8 +5,8 @@ import config
 import field
 
 while True:
-    field.carrot()
-    # field.pumpkin()
+    # field.carrot()
+    field.pumpkin()
 
 #    custom_map = [
 #      [Entities.Bush, Entities.Tree, Entities.Bush, Entities.Carrot],

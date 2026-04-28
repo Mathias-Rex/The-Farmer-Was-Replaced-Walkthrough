@@ -40,8 +40,9 @@ def carrot():
             utility.goto(rx, y)
             plant.carrot()
 
+pumpkin_map = []
 def pumpkin():
-    pumpkin_map = []
+    global pumpkin_map
     for y in range(get_world_size()):
         for x in range(get_world_size()):
             rx = x
@@ -60,3 +61,4 @@ def pumpkin():
             utility.goto(x, y)
             if get_entity_type() == Entities.Dead_Pumpkin:
                 plant.pumpkin()
+                pumpkin_map.insert(0, (x, y))

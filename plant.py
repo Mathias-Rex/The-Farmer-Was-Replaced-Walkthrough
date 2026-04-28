@@ -43,4 +43,4 @@ def smart(entity):
     if entity == Entities.Carrot:
         carrot()
     if entity == Entities.Pumpkin:
-        Pumpkin()
+        pumpkin()
