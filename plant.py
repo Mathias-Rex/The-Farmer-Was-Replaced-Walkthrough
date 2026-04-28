@@ -8,6 +8,7 @@ def carrot():
     else:
         utility.prepare_ground(Grounds.Soil)
         plant(Entities.Carrot)
+        utility.use_fertilizer()
 
 def grass():
     utility.prepare_ground(Grounds.Grassland)

@@ -29,4 +29,3 @@ def prepare_ground(req_ground):
     if get_ground_type() != req_ground:
         till()
     use_water()
-    use_fertilizer()
