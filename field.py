@@ -52,7 +52,7 @@ def pumpkin():
             # a tökre se ültessünk tököt már első körben se
             if get_entity_type() != Entities.Pumpkin:
                 plant.pumpkin()
-            pumpkin_map.insert(0, (rx, y))
+                pumpkin_map.insert(0, (rx, y))
 
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
@@ -63,3 +63,4 @@ def pumpkin():
             if get_entity_type() != Entities.Pumpkin:
                 plant.pumpkin()
                 pumpkin_map.insert(0, (x, y))
+    harvest()
