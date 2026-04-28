@@ -1,13 +1,11 @@
-# Nyissuk ki a tököt.
-# és készítsük el a tök ültető függvényt a plant fájlban.
-# Gondoskodjunk a smart függvényről is
-
-# Majd a filedben is a teljes mezőt ültető a pumpkin-t
+# Nyissuk ki a 3. speedet is.
+# És készítsünk egy jobb tök ültetést a fieldben
 
 import config
 import field
 
 while True:
+    # field.carrot()
     field.pumpkin()
 
 #    custom_map = [
