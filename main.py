@@ -9,7 +9,7 @@ req_carrot = 500
 req_hay = 800
 
 while True:
-    custom_map = [Entities.Bush, Entities.Tree, Entities.Tree, Entities.Carrot, Entities.Tree, Entities.Carrot, Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Carrot, Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Tree]
+    custom_map = [Entities.Bush, Entities.Tree, Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Carrot, Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Carrot, Entities.Tree, Entities.Carrot, Entities.Carrot, Entities.Tree, Entities.Bush, Entities.Tree]
     for y in range(get_world_size()):
         for x in range(get_world_size()):
             rx = x
