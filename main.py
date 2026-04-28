@@ -1,12 +1,26 @@
-# Alakítsuk át a térképünket jobban olvashatóvá
-# Tömb a tömbben, azaz 2 dimenziós tömb.
+# De ez az ültetés nem elég okos:
+#  * nem készíti elő a talajt és
+#  * nem locsolja meg a növényt.
+# Készítsünk egy okos ültetés függvényt!
 
 import field
 import utility
+import plant
+
 
 req_wood = 850
 req_carrot = 500
 req_hay = 800
+
+def plant_smart(entity):
+    if entity == Entities.Bush:
+        plant.bush()
+    if entity == Entities.Tree:
+        plant.tree()
+    if entity == Entities.Grass:
+        plant.grass()
+    if entity == Entities.Carrot:
+        plant.carrot()
 
 while True:
     custom_map = [
@@ -22,7 +36,7 @@ while True:
                 rx = get_world_size() - x - 1
             utility.goto(rx, y)
             utility.harvest_if_possible()
-            plant(custom_map[y][rx])
+            plant_smart(custom_map[y][rx])
 
 #    if num_items(Items.Hay) < req_hay:
 #        field.grass()
