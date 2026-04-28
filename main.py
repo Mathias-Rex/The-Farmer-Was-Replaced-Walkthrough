@@ -4,9 +4,18 @@
 import config
 import field
 
+# állítsuk vissza az okos termelési rendszer
 while True:
-    # field.carrot()
-    field.pumpkin()
+    if num_items(Items.Hay) < config.req_hay:
+        field.grass()
+    elif num_items(Items.Wood) < config.req_wood:
+        field.forest()
+    elif num_items(Entities.Carrot) < config.req_carrot:
+        field.carrot()
+    elif num_items(Entities.Pumpkin) < config.req_pumpkin:
+        field.pumpkin()
+    else:
+        field.pumpkin()
 
 #    custom_map = [
 #      [Entities.Bush, Entities.Tree, Entities.Bush, Entities.Carrot],
@@ -16,9 +25,4 @@ while True:
 #    ]
 #    field.custom(custom_map)
 
-#    if num_items(Items.Hay) < config.req_hay:
-#        field.grass()
-#    elif num_items(Items.Wood) < config.req_wood:
-#        field.forest()
-#    else:
-#        field.carrot()
+    
