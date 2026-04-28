@@ -1,13 +1,8 @@
-# Nyissuk ki: 
-#  * a 8x8 mezőt az Expanddal
-#  * a dictionary-t a List alatt
-# Kezdjük optimalizálni a napraforgő mezőnket.
+# emeljük a tök limitünket 3000-re, hogy
+# kinyithassuka a Polyculturet
 
 import config
 import field
-
-while True:
-    field.sunflower()
 
 while True:
     if num_items(Items.Hay) < config.req_hay:
