@@ -52,7 +52,8 @@ def pumpkin():
             plant.pumpkin()
             pumpkin_map.insert(0, (rx, y))
 
-    # ez sajnos csak egyszer fut le, de van megoldás!
+    # Ez sajnos csak egyszer fut le, de van megoldás!
+    # Addig fusson, amíg van ellenőrizendő koordinátánk.
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
             coord = pumpkin_map.pop()
