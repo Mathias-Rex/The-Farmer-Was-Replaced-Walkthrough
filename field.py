@@ -40,9 +40,6 @@ def carrot():
             utility.goto(rx, y)
             plant.carrot()
 
-# Hozzunk létre egy Listát, amibe majd elmentjük azokat a
-# koordinátákat, amiket ellenőriznünk kell.
-# Nyissuk ki a print() függvényt is!
 def pumpkin():
     pumpkin_map = []
     for y in range(get_world_size()):
@@ -54,11 +51,12 @@ def pumpkin():
             plant.pumpkin()
             pumpkin_map.insert(0, (rx, y))
 
-    # ebben a második körben pedig ellenőrizzük le mi van elültetve
-    for _ in range(len(pumpkin_map)):
-        coord = pumpkin_map.pop()
-        x = coord[0]
-        y = coord[1]
-        utility.goto(x, y)
-        if get_entity_type() == Entities.Dead_Pumpkin:
-            plant.pumpkin()
+    # ez sajnos csak egyszer fut le, de van megoldás!
+    while len(pumpkin_map) > 0:
+        for _ in range(len(pumpkin_map)):
+            coord = pumpkin_map.pop()
+            x = coord[0]
+            y = coord[1]
+            utility.goto(x, y)
+            if get_entity_type() == Entities.Dead_Pumpkin:
+                plant.pumpkin()
