@@ -87,7 +87,7 @@ def sunflower():
         petalNr = measure()
         if petalNr not in sunflower_map:
             sunflower_map[petalNr] = []
-        sunflower_map[petalNr].insert(0, (x,y))
+        sunflower_map[petalNr].insert(0, (x, y))
 
     # learatjuk az előállított térképek szerint a legnagyobb sziromszámtól
     # haladva a legkisebb sziromszámig.
