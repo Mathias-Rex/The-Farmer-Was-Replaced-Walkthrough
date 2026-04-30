@@ -60,8 +60,6 @@ def pumpkin():
                 pumpkin_map.insert(0, (x, y))
     harvest()
 
-# itt három kör helyett megoldhatnánk csak kettővel a tökhöz
-# hasaonlóan
 def sunflower():
     sunflower_map = { 0: [] }
     for y in range(get_world_size()):
@@ -91,4 +89,13 @@ def sunflower():
                 utility.goto(x, y)
                 harvest()
 
-
+# ültessünk el valamit, aztán mérjük meg milyen
+# társnövényre van szüksége, és hol, menjünk ode
+# és ültessük el.
+def polyculture():
+    plant.smart(Entities.Carrot)
+    while True:
+        plant_type, (x, y) = get_companion()
+        utility.goto(x, y)
+        plant.smart(plant_type)
+        

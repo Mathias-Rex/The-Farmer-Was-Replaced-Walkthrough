@@ -1,5 +1,7 @@
 # emeljük a tök limitünket 3000-re, hogy
 # kinyithassuka a Polyculturet
+# ha kinyitottuk, akkor a filedben készítsük el a
+# polyculture függvényt, és a else ágban használjuk is.
 
 import config
 import field
@@ -16,7 +18,7 @@ while True:
     elif num_items(Items.Power) < config.req_power:
         field.sunflower()
     else:
-        field.pumpkin()
+        field.polyculture()
 
 #    custom_map = [
 #      [Entities.Bush, Entities.Tree, Entities.Bush, Entities.Carrot],
