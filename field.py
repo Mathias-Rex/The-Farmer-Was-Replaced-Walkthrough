@@ -89,13 +89,31 @@ def sunflower():
                 utility.goto(x, y)
                 harvest()
 
-# ültessünk el valamit, aztán mérjük meg milyen
-# társnövényre van szüksége, és hol, menjünk ode
-# és ültessük el.
+# Tegyül el egy tömbben, az utlsó n helyet egy változóba,
+# hogy honnét jöttünk, és ha ugyanoda kell mennünk, ahol
+# nemrég voltunk már, akkor menjünk egy random kooordinátára.
+# Nyissuk ki a random() függvényt ehhez!
 def polyculture():
     plant.smart(Entities.Carrot)
+    recent_targets = []
+    history_size = 6
+
     while True:
         plant_type, (x, y) = get_companion()
-        utility.goto(x, y)
-        plant.smart(plant_type)
-        
+
+        is_repeat = False
+        for (rx, ry) in recent_targets:
+            if rx == x and ry == y:
+                is_repeat = True
+                break
+
+        if is_repeat:
+            tx = random() * get_world_size() // 1
+            ty = random() * get_world_size() // 1
+            utility.goto(tx, ty)
+        else:
+            recent_targets.insert(0, (x, y))
+            if len(recent_targets) > history_size:
+                recent_targets.pop()
+            utility.goto(x, y)
+            plant.smart(plant_type)

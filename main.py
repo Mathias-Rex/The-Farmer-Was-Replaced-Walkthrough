@@ -1,7 +1,6 @@
-# emeljük a tök limitünket 3000-re, hogy
-# kinyithassuka a Polyculturet
-# ha kinyitottuk, akkor a filedben készítsük el a
-# polyculture függvényt, és a else ágban használjuk is.
+# Van egy kis problémánk a polyculture függvényünkkel
+# Ha fát ültetünk és bokrot, akkor néha kicsit megőrül a drónunk.
+# Okosítsuk fel a függvényünket.
 
 import config
 import field
@@ -28,4 +27,3 @@ while True:
 #    ]
 #    field.custom(custom_map)
 
-    
