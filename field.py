@@ -99,7 +99,12 @@ def polyculture():
     history_size = 6
 
     while True:
-        plant_type, (x, y) = get_companion()
+        companion_data = get_companion()
+        if companion_data == None:
+          plant.smart(Entities.Carrot)
+          continue
+
+        plant_type, (x, y) = companion_data
 
         is_repeat = False
         for (rx, ry) in recent_targets:
