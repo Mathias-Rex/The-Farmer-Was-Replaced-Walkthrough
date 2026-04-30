@@ -5,24 +5,40 @@
 import plant
 import utility
 
-_snake_path = []
-_snake_path_ready = False
+_snake_paths = {}
 
-def get_snake_path():
-    global _snake_path
-    global _snake_path_ready
-    if _snake_path_ready == False:
+def get_snake_path(vertical="upward", horizontal="left_to_right"):
+    global _snake_paths
+    key = vertical + ":" + horizontal
+    if key not in _snake_paths:
+        snake_path = []
         size = get_world_size()
-        for y in range(size):
+
+        y_start = 0
+        y_end = size
+        y_step = 1
+        if vertical == "downward":
+            y_start = size - 1
+            y_end = -1
+            y_step = -1
+
+        row_nr = 0
+        for y in range(y_start, y_end, y_step):
+            left_to_right = horizontal == "left_to_right"
+            if row_nr % 2 != 0:
+                left_to_right = horizontal == "right_to_left"
+
             for x in range(size):
                 rx = x
-                if y % 2 != 0:
+                if left_to_right == False:
                     rx = size - x - 1
-                _snake_path.append((rx, y))
-        _snake_path_ready = True
+                snake_path.append((rx, y))
+            row_nr = row_nr + 1
+
+        _snake_paths[key] = snake_path
 
     snake_path = []
-    for coord in _snake_path:
+    for coord in _snake_paths[key]:
         snake_path.insert(len(snake_path), coord)
     return snake_path
 
@@ -68,11 +84,13 @@ def pumpkin():
 
 def sunflower():
     sunflower_map = { 0: get_snake_path() }
+    
+    for (x, y) in sunflower_map[0]:
+        utility.goto(x, y)
+        plant.sunflower()
 
     for _ in range(len(sunflower_map[0])):
-        coord = sunflower_map[0].pop(0)
-        x = coord[0]
-        y = coord[1]
+        (x, y) = sunflower_map[0].pop(0)
         utility.goto(x, y)
         petalNr = measure()
         if petalNr not in sunflower_map:
@@ -81,9 +99,7 @@ def sunflower():
 
     for petalNr in range(15, -1, -1):
         if petalNr in sunflower_map:
-            for coord in sunflower_map[petalNr]:
-                x = coord[0]
-                y = coord[1]
+            for (x, y) in sunflower_map[petalNr]:
                 utility.goto(x, y)
                 harvest()
 
