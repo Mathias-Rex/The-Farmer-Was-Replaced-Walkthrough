@@ -1,78 +1,76 @@
+# Itt nagyon sokszorr írjuk le ugyanazt, próbáljunk spórolni!
+# Minden futás elején generáljuk le a snakepath útvonalat.
+# És azt használjuk mindenfelé.
+
 import plant
 import utility
 
+_snake_path = []
+_snake_path_ready = False
+
+def get_snake_path():
+    global _snake_path
+    global _snake_path_ready
+    if _snake_path_ready == False:
+        size = get_world_size()
+        for y in range(size):
+            for x in range(size):
+                rx = x
+                if y % 2 != 0:
+                    rx = size - x - 1
+                _snake_path.append((rx, y))
+        _snake_path_ready = True
+
+    snake_path = []
+    for coord in _snake_path:
+        snake_path.insert(len(snake_path), coord)
+    return snake_path
+
 def custom(custom_map):
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            plant.smart(custom_map[y][rx])
+    for (x, y) in get_snake_path():
+        utility.goto(x, y)
+        plant.smart(custom_map[y][x])
 
 def forest():
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            if (rx + y) % 2 == 0:
-                plant.bush()
-            else:
-                plant.tree()
+    for (x, y) in get_snake_path():
+        utility.goto(x, y)
+        if (x + y) % 2 == 0:
+            plant.bush()
+        else:
+            plant.tree()
 
 def grass():
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            plant.grass()
+    for (x, y) in get_snake_path():
+        utility.goto(x, y)
+        plant.grass()
 
 def carrot():
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            plant.carrot()
+    for (x, y) in get_snake_path():
+        utility.goto(x, y)
+        plant.carrot()
 
 def pumpkin():
-    pumpkin_map = []
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            pumpkin_map.insert(0, (rx, y))
+    pumpkin_map = get_snake_path()
 
     while len(pumpkin_map) > 0:
         for _ in range(len(pumpkin_map)):
-            coord = pumpkin_map.pop()
+            coord = pumpkin_map[0]
+            pumpkin_map.pop(0)
             x = coord[0]
             y = coord[1]
             utility.goto(x, y)
             if get_entity_type() != Entities.Pumpkin:
                 plant.pumpkin()
-                pumpkin_map.insert(0, (x, y))
+                pumpkin_map.insert(len(pumpkin_map), (x, y))
+            elif can_harvest() == False:
+                pumpkin_map.insert(len(pumpkin_map), (x, y))
     harvest()
 
 def sunflower():
-    sunflower_map = { 0: [] }
-    for y in range(get_world_size()):
-        for x in range(get_world_size()):
-            rx = x
-            if y % 2 != 0:
-                rx = get_world_size() - x - 1
-            utility.goto(rx, y)
-            plant.sunflower()
-            sunflower_map[0].insert(0, (rx, y))
+    sunflower_map = { 0: get_snake_path() }
 
     for _ in range(len(sunflower_map[0])):
-        coord = sunflower_map[0].pop()
+        coord = sunflower_map[0].pop(0)
         x = coord[0]
         y = coord[1]
         utility.goto(x, y)
@@ -89,17 +87,18 @@ def sunflower():
                 utility.goto(x, y)
                 harvest()
 
-# Tegyül el egy tömbben, az utlsó n helyet egy változóba,
-# hogy honnét jöttünk, és ha ugyanoda kell mennünk, ahol
-# nemrég voltunk már, akkor menjünk egy random kooordinátára.
-# Nyissuk ki a random() függvényt ehhez!
 def polyculture():
     plant.smart(Entities.Carrot)
     recent_targets = []
     history_size = 6
 
     while True:
-        plant_type, (x, y) = get_companion()
+        companion_data = get_companion()
+        if companion_data == None:
+          plant.smart(Entities.Carrot)
+          continue
+
+        plant_type, (x, y) = companion_data
 
         is_repeat = False
         for (rx, ry) in recent_targets:

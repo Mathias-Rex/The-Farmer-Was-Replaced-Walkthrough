@@ -1,6 +1,4 @@
-# Van egy kis problémánk a polyculture függvényünkkel
-# Ha fát ültetünk és bokrot, akkor néha kicsit megőrül a drónunk.
-# Okosítsuk fel a függvényünket.
+# Nézzük meg a field modulunkat
 
 import config
 import field
