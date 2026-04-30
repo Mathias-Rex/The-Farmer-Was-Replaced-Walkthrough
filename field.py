@@ -69,6 +69,12 @@ def pumpkin():
 def sunflower():
     sunflower_map = { 0: get_snake_path() }
 
+    for coords in sunflower_map[0]:
+        x = coords[0]
+        y = coords[1]
+        utility.goto(x, y)
+        plant.sunflower()
+
     for _ in range(len(sunflower_map[0])):
         coord = sunflower_map[0].pop(0)
         x = coord[0]
