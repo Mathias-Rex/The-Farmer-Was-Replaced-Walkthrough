@@ -84,7 +84,7 @@ def pumpkin():
 
 def sunflower():
     sunflower_map = { 0: get_snake_path() }
-    
+
     for (x, y) in sunflower_map[0]:
         utility.goto(x, y)
         plant.sunflower()
