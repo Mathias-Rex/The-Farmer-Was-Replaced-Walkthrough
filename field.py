@@ -1,4 +1,4 @@
-# Itt nagyon sokszorr írjuk le ugyanazt, próbáljunk spórolni!
+# Itt nagyon sokszor írjuk le ugyanazt, próbáljunk spórolni!
 # Minden futás elején generáljuk le a snakepath útvonalat.
 # És azt használjuk mindenfelé.
 
